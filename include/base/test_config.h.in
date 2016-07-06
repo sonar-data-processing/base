@@ -1,0 +1,9 @@
+#ifndef test_config_h
+#define test_config_h
+
+#include <string>
+
+#define DATA_PATH "@WORKSPACE_DATA_PATH@"
+const std::string DATA_PATH_STRING = std::string("@WORKSPACE_DATA_PATH@");
+
+#endif /* end of include guard: test_config_h */

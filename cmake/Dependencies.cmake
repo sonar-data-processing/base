@@ -1,0 +1,5 @@
+macro (add_project_dependency PROJECT_NAME SOURCE_PATH BINARY_PATH)
+    if (NOT TARGET ${PROJECT_NAME})
+        add_subdirectory (${SOURCE_PATH}/${PROJECT_NAME} ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME} )
+    endif()
+endmacro()
