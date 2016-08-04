@@ -39,7 +39,7 @@ public:
     static int  aspect_ratio_width(float angle, int height) {
         return height * cos(angle - M_PI_2) * 2.0;
     }
-    
+
     static int percentage(int value, int max_value) {
         return 100.0f * value / max_value;
     }
