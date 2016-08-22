@@ -18,12 +18,26 @@ macro (setup_headers PROJECT_NAME SOURCE_PATH)
     endforeach()
 endmacro()
 
-macro (configure_file_list INPUT_LIST OUTPUT_PATH)
-    foreach(FILEPATH ${INPUT_LIST})
+function (configure_file_list)
+
+    set (VALID_ARGS "INPUT_FILES;OUTPUT_DIR")
+    set (CURRENT_ARGUMENT "INPUT_FILES")
+
+    foreach(ELEMENT ${ARGN})
+        list(FIND VALID_ARGS ${ELEMENT} IS_VALID_ARG)
+        if ( IS_VALID_ARG GREATER "-1" )
+            set (CURRENT_ARGUMENT ${ELEMENT})
+        else()
+            list ( APPEND ${CURRENT_ARGUMENT} ${ELEMENT} )
+        endif()
+    endforeach()
+
+    foreach(FILEPATH ${INPUT_FILES})
         get_filename_component (FILENAME ${FILEPATH} NAME)
+        message( STATUS "${FILEPATH}" )
         configure_file (
             ${FILEPATH}
-            ${OUTPUT_PATH}/${FILENAME}
+            ${OUTPUT_DIR}/${FILENAME}
             @ONLY)
     endforeach()
-endmacro()
+endfunction()
