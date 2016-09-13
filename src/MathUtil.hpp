@@ -10,6 +10,15 @@ namespace base {
 class MathUtil {
 public:
 
+    static void to_polar(float dx, float dy, float& radius, float& theta) {
+        radius = sqrt(dx * dx + dy * dy);
+        theta = atan2(dy, dx);
+    }
+
+    static cv::Point2f to_cartesianf(float theta, float radius, float angle = 0) {
+        return cv::Point2f(cos(theta + angle) * radius, sin(theta + angle) * radius);
+    }
+
     static cv::Point to_cartesian(float theta, float radius) {
         return cv::Point(round(cos(theta) * radius), round(sin(theta) * radius));
     }
@@ -43,6 +52,8 @@ public:
     static int percentage(int value, int max_value) {
         return 100.0f * value / max_value;
     }
+
+
 
 private:
 
