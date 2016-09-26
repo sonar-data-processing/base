@@ -1,6 +1,7 @@
 #ifndef MathUtil_hpp
 #define MathUtil_hpp
 
+#include <cstdio>
 #include <iostream>
 #include <cmath>
 #include <opencv2/opencv.hpp>
@@ -53,7 +54,11 @@ public:
         return 100.0f * value / max_value;
     }
 
-
+    static float angle_difference(float theta0, float theta1) {
+        float dist = fabs(theta0 - theta1);
+        if (dist > M_PI) dist = fabs(dist - 2 * M_PI);
+        return dist;
+    }
 
 private:
 
