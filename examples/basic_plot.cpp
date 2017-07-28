@@ -1,4 +1,4 @@
-#include "base/Plot.hpp"
+#include "Plot.hpp"
 
 int main(int argc, char const *argv[]) {
 
