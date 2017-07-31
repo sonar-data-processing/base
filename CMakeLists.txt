@@ -4,6 +4,8 @@ project (base)
 list(APPEND CMAKE_MODULE_PATH ${base_SOURCE_DIR}/cmake)
 list(APPEND CMAKE_MODULE_PATH $ENV{SONAR_TOOLKIT_PREFIX}/third_party/cmake)
 
+set ( SONAR_TOOLKIT_DATA $ENV{SONAR_TOOLKIT_PREFIX}/data )
+
 include ( FindPkgConfig )
 include ( Gnuplot )
 find_package ( Boost COMPONENTS system filesystem program_options iostreams REQUIRED )

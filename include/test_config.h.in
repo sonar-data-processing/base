@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define DATA_PATH "@WORKSPACE_DATA_PATH@"
-const std::string DATA_PATH_STRING = std::string("@WORKSPACE_DATA_PATH@");
+#define DATA_PATH "@SONAR_TOOLKIT_DATA@"
+const std::string DATA_PATH_STRING = std::string("@SONAR_TOOLKIT_DATA@");
 
 #endif /* end of include guard: test_config_h */
