@@ -26,7 +26,7 @@ configure_file (
 )
 
 add_library (
-    base
+    base SHARED
     ${SOURCES}
 )
 
